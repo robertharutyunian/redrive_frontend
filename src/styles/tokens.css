@@ -25,7 +25,8 @@
   --radius-full: 999px;
 
   /* Typography — Noto Sans Armenian (primary script) falls back to Google Sans (Latin) */
-  --font-sans: var(--font-noto-sans-armenian), var(--font-google-sans), Arial, Helvetica, sans-serif;
+  --font-sans:
+    var(--font-noto-sans-armenian), var(--font-google-sans), Arial, Helvetica, sans-serif;
   --font-size-sm: 14px;
   --font-size-md: 16px;
   --font-size-lg: 20px;

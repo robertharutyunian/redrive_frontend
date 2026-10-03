@@ -7,7 +7,7 @@ src/components/
   atoms/        smallest, single-purpose UI primitives (Button, Input, Icon)
   molecules/    a few atoms + markup combined (FieldGroup = Label + Input)
   organisms/    a chunk of UI assembled from molecules/atoms (SiteHeader)
-  templates/    page-level layout skeletons that compose organisms (PageShell)
+  templates/    page layout skeletons (PageShell) + page-specific section folders (AboutPageComponent)
 ```
 
 Pages (the conceptual 5th tier) are just `src/app/**/page.tsx` — they compose a
@@ -25,6 +25,20 @@ Button/
 ```
 
 Import via the folder's barrel: `import { Button } from "@/components/atoms/Button";`
+
+**Exception — page-specific sections** live in one folder per page under
+`templates/`, with flat page-prefixed files:
+
+```
+templates/AboutPageComponent/
+  AboutPageHero.tsx
+  AboutPageHero.module.css
+  AboutPageDrawer.tsx
+  AboutPageDrawer.module.css
+  index.ts
+```
+
+Used when a page would exceed the 150-line limit (see `.claude/rules/atomic-design.md`).
 
 ## Server vs. Client Components
 
