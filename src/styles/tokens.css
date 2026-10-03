@@ -1,0 +1,32 @@
+:root {
+  /* Color — ReDrive Brand Book v1.0 */
+  --color-charcoal: #1c1f26;
+  --color-orange: #ff6a00;
+  --color-off-white: #f5f5f2;
+  --color-white: #ffffff;
+
+  --color-background: var(--color-off-white);
+  --color-foreground: var(--color-charcoal);
+  --color-primary: var(--color-orange);
+  --color-primary-foreground: var(--color-white);
+  --color-border: #e5e4e0;
+  --color-muted: #6b6f76;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 999px;
+
+  /* Typography — Noto Sans Armenian (primary script) falls back to Google Sans (Latin) */
+  --font-sans: var(--font-noto-sans-armenian), var(--font-google-sans), Arial, Helvetica, sans-serif;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+}
