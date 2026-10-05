@@ -9,8 +9,24 @@
   --color-foreground: var(--color-charcoal);
   --color-primary: var(--color-orange);
   --color-primary-foreground: var(--color-white);
-  --color-border: #e5e4e0;
+  --color-primary-tint: #ffe8d9;
+  --color-border: #e2e2dc;
   --color-muted: #6b6f76;
+
+  /* Inverse / on-dark surfaces (charcoal panels, dark CTAs) */
+  --color-surface-inverse: var(--color-charcoal);
+  --color-on-inverse: var(--color-white);
+  --color-on-inverse-accent: var(--color-orange);
+  --color-border-inverse: rgba(255, 255, 255, 0.16);
+
+  /* Elevation — tonal layering, no diffuse drop shadows */
+  --shadow-overlay: 0 8px 24px -4px rgba(28, 31, 38, 0.08);
+  --shadow-hover: 0 4px 12px rgba(28, 31, 38, 0.05);
+
+  /* Functional status color — not part of the brand accent palette */
+  --color-success: #2e7a3b;
+  --color-success-bg: #eaf6ec;
+  --color-danger: #c23934;
 
   /* Spacing */
   --space-xs: 4px;
@@ -27,7 +43,16 @@
   /* Typography — Noto Sans Armenian (primary script) falls back to Google Sans (Latin) */
   --font-sans:
     var(--font-noto-sans-armenian), var(--font-google-sans), Arial, Helvetica, sans-serif;
+  --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-md: 16px;
   --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+
+  /* Noto Sans Armenian is only loaded at 400–700 — never go to 800 or Armenian text falls back */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }

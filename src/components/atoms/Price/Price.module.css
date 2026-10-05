@@ -1,0 +1,30 @@
+.price {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.sm {
+  font-size: var(--font-size-sm);
+}
+
+.md {
+  font-size: var(--font-size-lg);
+}
+
+.lg {
+  font-size: var(--font-size-2xl);
+}
+
+.default {
+  color: var(--color-foreground);
+}
+
+.accent {
+  color: var(--color-primary);
+}
+
+.inverse {
+  color: var(--color-on-inverse);
+}

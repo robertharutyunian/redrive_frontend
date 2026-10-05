@@ -1,0 +1,40 @@
+.heading {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.h1 {
+  font-size: var(--font-size-2xl);
+}
+
+.h2 {
+  font-size: var(--font-size-xl);
+}
+
+.h3 {
+  font-size: var(--font-size-lg);
+}
+
+.h4,
+.h5,
+.h6 {
+  font-size: var(--font-size-md);
+}
+
+.default {
+  color: var(--color-foreground);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.accent {
+  color: var(--color-primary);
+}
+
+.inverse {
+  color: var(--color-on-inverse);
+}
