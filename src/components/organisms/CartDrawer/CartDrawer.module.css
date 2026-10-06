@@ -5,6 +5,14 @@
   display: flex;
   justify-content: flex-end;
   z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .drawer {
@@ -15,6 +23,12 @@
   height: 100%;
   background: var(--color-white);
   box-shadow: var(--shadow-overlay);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.drawerOpen {
+  transform: translateX(0);
 }
 
 .header {
@@ -82,8 +96,9 @@
   border-radius: var(--radius-md);
 }
 
-.itemRow {
+.itemTop {
   display: flex;
+  align-items: flex-start;
   gap: var(--space-sm);
 }
 
@@ -102,7 +117,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-xs);
+}
+
+.sizeBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-sm);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-foreground);
 }
 
 .removeButton {
@@ -121,9 +150,13 @@
   color: var(--color-danger);
 }
 
-.itemFooter {
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--color-border);
+.divider {
+  height: 1px;
+  background: var(--color-border);
+}
+
+.placeholder {
+  margin: 0;
 }
 
 .footer {

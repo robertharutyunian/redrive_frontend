@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/atoms/Button";
 import { Icon } from "@/components/atoms/Icon";
-import { Price } from "@/components/atoms/Price";
+import { formatPrice, Price } from "@/components/atoms/Price";
 import { Text } from "@/components/atoms/Text";
 import { SegmentedPillSelector } from "@/components/molecules/SegmentedPillSelector";
 import styles from "./CartDrawer.module.css";
@@ -34,14 +34,13 @@ export function CartDrawer({
   onRemove,
   onCheckout,
 }: CartDrawerProps) {
-  if (!open) {
-    return null;
-  }
+  const overlayClasses = open ? `${styles.overlay} ${styles.overlayOpen}` : styles.overlay;
+  const drawerClasses = open ? `${styles.drawer} ${styles.drawerOpen}` : styles.drawer;
 
   return (
-    <div className={styles.overlay} role="presentation" onClick={onClose}>
+    <div className={overlayClasses} role="presentation" aria-hidden={!open} onClick={onClose}>
       <div
-        className={styles.drawer}
+        className={drawerClasses}
         role="dialog"
         aria-modal="true"
         aria-label="Զամբյուղ"
@@ -62,7 +61,7 @@ export function CartDrawer({
         <div className={styles.items}>
           {items.map((item) => (
             <div key={item.id} className={styles.item}>
-              <div className={styles.itemRow}>
+              <div className={styles.itemTop}>
                 <div className={styles.itemImage}>
                   <Text as="span" size="xs" tone="muted">
                     Նկար
@@ -72,10 +71,7 @@ export function CartDrawer({
                   <Text as="span" size="xs" weight="bold">
                     {item.model}
                   </Text>
-                  <Text as="span" size="xs" tone="muted">
-                    {item.size}
-                  </Text>
-                  <Price amount={item.price} size="sm" tone="accent" />
+                  <span className={styles.sizeBadge}>{item.size}</span>
                 </div>
                 <button
                   type="button"
@@ -86,19 +82,27 @@ export function CartDrawer({
                   <Icon name="trash" size={16} />
                 </button>
               </div>
-              <div className={styles.itemFooter}>
-                <SegmentedPillSelector
-                  label="Քանակ"
-                  valueLabel={`${item.quantity} հատ`}
-                  value={String(item.quantity)}
-                  onChange={(value) => onQuantityChange(item.id, Number(value))}
-                  options={[
-                    { value: "1", label: "1" },
-                    { value: "2", label: "2" },
-                    { value: "4", label: "4" },
-                  ]}
-                />
-              </div>
+
+              <SegmentedPillSelector
+                label="Ընտրել քանակը"
+                labelSize="sm"
+                valueLabel={formatPrice(item.price * item.quantity)}
+                valueTone="default"
+                valueSize="md"
+                value={String(item.quantity)}
+                onChange={(value) => onQuantityChange(item.id, Number(value))}
+                options={[
+                  { value: "1", label: "1" },
+                  { value: "2", label: "2" },
+                  { value: "4", label: "4" },
+                ]}
+              />
+
+              <div className={styles.divider} />
+
+              <Text as="p" size="xs" tone="muted" className={styles.placeholder}>
+                Լրացուցիչ տեղեկություն կհայտնվի այստեղ։
+              </Text>
             </div>
           ))}
         </div>
@@ -108,7 +112,7 @@ export function CartDrawer({
             <Text as="span" size="xs" tone="muted">
               Գումար
             </Text>
-            <Price amount={subtotal} size="sm" />
+            <Price amount={subtotal} size="md" />
           </div>
           <Button
             variant="primary"

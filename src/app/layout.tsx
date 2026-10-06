@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageShell } from "@/components/templates/PageShell";
 import { googleSans, notoSansArmenian } from "./fonts";
 import "./globals.css";
 
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="hy" className={`${googleSans.variable} ${notoSansArmenian.variable}`}>
-      <body>{children}</body>
+      <body>
+        <PageShell>{children}</PageShell>
+      </body>
     </html>
   );
 }
